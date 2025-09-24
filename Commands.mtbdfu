@@ -1,0 +1,35 @@
+{
+  "APPInfo": {
+    "msg": "This is APP Info section",
+    "File Version": "0x1",
+    "Product Id": "01020304",
+    "Packet Checksum Type": "0x0"
+  },
+  "commands": [
+    {
+      "msg": "User-defined Command Id : 0xFC - ToggleGPIO, to toggle GPIO for given PORT and PIN \
+       `dataBytes` contain GPIO PORT Number and GPIO PIN Number to toggle respectively. \
+       In this case, command will toggle Pin 6(0x06) of Port 16 (0x10)",
+      "cmdId":"0xFC",
+      "dataBytes":["0x10","0x06"],
+      "outFile": "Response.txt",
+      "dataLength":"0x02"
+    },
+    {
+      "msg": "User-defined Command Id : 0xFF - ReadData, to read data from given address \
+       `dataBytes` contains 4 bytes of address and 1 byte for size of data to be read from device \
+       Response packet will contain the data requested, Ensure `responseLength` should \
+       be same as size of data requested in bytes \
+       In this case, command will read 4 bytes of data from address 0x60340400",
+      "cmdId":"0xFF",
+      "dataBytes":["0x60","0x34","0x04","0x00","0x04"],
+      "dataLength":"0x05",
+      "outFile": "Response.txt",
+       "rsp": 
+       {
+        "statusCode": "0x00",
+        "responseLength": "0x04"
+       }
+    }
+    ]
+}
